@@ -8,7 +8,7 @@ $(IMAGE):
 	docker build -t $(MAINTAINER)/$(IMAGE):$(VARIANT) -f Dockerfile.$(VARIANT) .
 
 test:
-	docker run -ti --rm --network=host --env DISPLAY=:0 $(MAINTAINER)/$(IMAGE):$(VARIANT)
+	docker run --init --rm --network=host --env DISPLAY=${DISPLAY} $(MAINTAINER)/$(IMAGE):$(VARIANT)
 
 clean:
 	docker image prune --force
