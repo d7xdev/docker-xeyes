@@ -7,6 +7,9 @@ all: $(IMAGE)
 $(IMAGE):
 	docker build -t $(MAINTAINER)/$(IMAGE):$(VARIANT) -f Dockerfile.$(VARIANT) .
 
+latest: $(IMAGE)
+	docker tag $(MAINTAINER)/$(IMAGE):$(VARIANT) $(MAINTAINER)/$(IMAGE):latest
+
 test:
 	docker run --init --rm --network=host --env DISPLAY=${DISPLAY} $(MAINTAINER)/$(IMAGE):$(VARIANT)
 
@@ -16,4 +19,4 @@ clean:
 sysclean:
 	docker system prune --force
 
-.PHONY: $(IMAGE) test all clean sysclean
+.PHONY: $(IMAGE) all latest test clean sysclean
