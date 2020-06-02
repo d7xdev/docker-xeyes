@@ -2,7 +2,7 @@ MAINTAINER  ?= d7xdev
 VARIANT     ?= alpine
 IMAGE       ?= xeyes
 
-all: $(IMAGES)
+all: $(IMAGE)
 
 $(IMAGE):
 	docker build -t $(MAINTAINER)/$(IMAGE):$(VARIANT) -f Dockerfile.$(VARIANT) .
