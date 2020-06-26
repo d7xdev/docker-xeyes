@@ -5,4 +5,4 @@ RUN apk add --no-cache --update \
         xeyes \
     && rm -rf ~/.cache/* /usr/local/share/man /tmp/*                                               
 
-CMD ["/usr/bin/xeyes", "-fg", "black"]
+CMD ["/usr/bin/xeyes", "-outline", "black", "-center", "white", "-fg", "black"]
